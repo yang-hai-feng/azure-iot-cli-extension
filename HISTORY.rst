@@ -3,6 +3,27 @@
 Release History
 ===============
 
+0.26.0
++++++++++++++++
+
+**General updates**
+
+* We have dropped support for Python 3.8
+* This extension now supports Python 3.12 as the CLI core is packaging newer releases with this python version,
+* **[Breaking Change]** Older versions of `uamqp` (below `1.6.6`) are not compatible with Python 3.12
+  * If you update your packaged AZ CLI version (`2.66.0` or later) or otherwise change your environment's Python version to 3.12, you will need to update your `uamqp` dependency to `1.6.6` or above in order to use commands like `az iot hub monitor-events`
+  * You can repair this dependency at command runtime by utilizing the `--repair` / `-r` argument in `az iot hub monitor-events`
+
+**IoT device updates**
+
+* **[Breaking Change]** Device c2d messages (`az iot device c2d-message`) have been updated to support the following service-side changes:
+  * `ContentEncoding` system property is now `content-encoding`
+  * `ContentType` system property is now `content-type`
+
+**IoT Hub updates**
+
+* Removal of `az iot hub certificate root-authority`. For any issues, email iot-ca-updates@microsoft.com.
+
 
 0.25.0
 +++++++++++++++
@@ -512,7 +533,7 @@ Other notable changes, which are not affected by API versions, include:
 **Device Update**
 
 * Introducing the **in preview** Azure Device Update for IoT Hub root command group `az iot device-update`.
-  To learn more about the service visit https://docs.microsoft.com/en-us/azure/iot-hub-device-update/.
+  To learn more about the service visit https://learn.microsoft.com/en-us/azure/iot-hub-device-update/.
 
   - This command group is behind a feature flag environment variable. Set `IOT_CLI_ADU_ENABLED` to any value
     to activate the command group.
@@ -824,7 +845,7 @@ Other notable changes, which are not affected by API versions, include:
     * az iot device send-d2c-message
     * az iot device simulate
 
-For more information about IoT Hub support for AAD visit: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-dev-guide-azure-ad-rbac
+For more information about IoT Hub support for AAD visit: https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-dev-guide-azure-ad-rbac
 
 **Azure Digital Twins updates**
 

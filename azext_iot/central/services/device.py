@@ -3,7 +3,6 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
-# This is largely derived from https://docs.microsoft.com/en-us/rest/api/iotcentral/devices
 
 from typing import List
 import requests
@@ -745,7 +744,7 @@ def get_device_twin(
     """
 
     if not token:
-        aad_token = get_aad_token(cmd, resource="https://apps.azureiotcentral.com")[
+        aad_token = get_aad_token(cmd.cli_ctx, resource="https://apps.azureiotcentral.com")[
             "accessToken"
         ]
         token = "Bearer {}".format(aad_token)
@@ -906,7 +905,7 @@ def list_device_modules(
         modules: list
     """
     if not token:
-        aad_token = get_aad_token(cmd, resource="https://apps.azureiotcentral.com")[
+        aad_token = get_aad_token(cmd.cli_ctx, resource="https://apps.azureiotcentral.com")[
             "accessToken"
         ]
         token = "Bearer {}".format(aad_token)
@@ -955,7 +954,7 @@ def restart_device_module(
     """
 
     if not token:
-        aad_token = get_aad_token(cmd, resource="https://apps.azureiotcentral.com")[
+        aad_token = get_aad_token(cmd.cli_ctx, resource="https://apps.azureiotcentral.com")[
             "accessToken"
         ]
         token = "Bearer {}".format(aad_token)

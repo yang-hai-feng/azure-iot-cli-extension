@@ -5,7 +5,6 @@
 # --------------------------------------------------------------------------------------------
 
 from azext_iot.iothub.providers.state import HubAspects
-from azext_iot.iothub.common import CertificateAuthorityVersions
 from azure.cli.core.commands.parameters import get_enum_type, get_three_state_flag
 from azext_iot.common.shared import DeviceAuthType, SettleType, ProtocolType, AckType
 from azext_iot.assets.user_messages import info_param_properties_device
@@ -134,7 +133,7 @@ def load_iothub_arguments(self, _):
             "model_id",
             options_list=["--model-id", "--dtmi"],
             help="The Digital Twin Model Id the device will report when connecting to the hub. See "
-            "https://docs.microsoft.com/en-us/azure/iot-develop/overview-iot-plug-and-play for more details.",
+            "https://learn.microsoft.com/en-us/azure/iot-develop/overview-iot-plug-and-play for more details.",
             arg_group="Digital Twin",
             validator=validate_device_model_id,
         )
@@ -657,12 +656,4 @@ def load_iothub_arguments(self, _):
             "system_properties",
             options_list=["--system-properties", "--sp"],
             help="System properties of the route message.",
-        )
-
-    with self.argument_context("iot hub certificate root-authority set") as context:
-        context.argument(
-            "ca_version",
-            options_list=["--certificate-authority", "--cav"],
-            help="Certificate Root Authority version. The v1 represents Baltimore CA and v2 represents Digicert CA.",
-            arg_type=get_enum_type(CertificateAuthorityVersions),
         )

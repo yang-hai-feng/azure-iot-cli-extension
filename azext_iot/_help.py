@@ -471,6 +471,7 @@ helps[
     long-summary: |
                    This command is the same as iot hub query with the query "select * from devices" for
                    all devices and "select * from devices where capabilities.iotEdge = true" for edge devices.
+                   Use `az iot hub query` for more powerful queries on devices.
 """
 
 helps[
@@ -725,7 +726,7 @@ helps[
     type: command
     short-summary: Query an IoT Hub using a powerful SQL-like language.
     long-summary: Retrieve information regarding device and module twins, jobs and message routing.
-                  See https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
+                  See https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
                   for more information.
     examples:
     - name: Query all device twin data in an Azure IoT Hub.
@@ -882,7 +883,7 @@ helps[
                    all from the cloud.
 
                    Read more about Azure IoT Edge here:
-                   https://docs.microsoft.com/en-us/azure/iot-edge/
+                   https://learn.microsoft.com/en-us/azure/iot-edge/
 """
 
 helps[

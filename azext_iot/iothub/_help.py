@@ -270,8 +270,8 @@ def load_iothub_help():
                       to `application/octet-stream`.
 
                       Note: The command only works for symmetric key auth (SAS) based devices.
-                      To enable querying on a message body in message routing, the contentType
-                      system property must be application/JSON and the contentEncoding system
+                      To enable querying on a message body in message routing, the content-type
+                      system property must be application/JSON and the content-encoding system
                       property must be one of the UTF encoding values supported by that system
                       property(UTF-8, UTF-16 or UTF-32). If the content encoding isn't set when
                       Azure Storage is used as routing endpoint, then IoT Hub writes the messages
@@ -954,34 +954,4 @@ def load_iothub_help():
           - name: Disable the fallback route in an IoT Hub.
             text: >
               az iot hub message-route fallback set -n {iothub_name} --enabled false
-    """
-
-    helps["iot hub certificate root-authority"] = """
-        type: group
-        short-summary: Manage the certificate root-authority for an IoT Hub instance.
-    """
-
-    helps["iot hub certificate root-authority set"] = """
-        type: command
-        short-summary: Set the certificate root-authority for an IoT Hub instance to a specific version.
-        long-summary: Transition this resource to a certificate on the DigiCert Global G2 root (v2) or revert to Baltimore root (v1).
-          Before making this transition, please ensure all devices are updated to contain the public portion of the root
-          that the IoT Hub will be transitioned to. Devices will disconnect and reconnect using the new root.
-          We suggest monitoring current connections but an user defined metric may be more appropriate for your situation.
-        examples:
-        - name: Transition the target IoT Hub certificate root authority to Digicert.
-          text: >
-            az iot hub certificate root-authority set --hub-name {iothub_name} --certificate-authority v2
-        - name: Revert the target IoT Hub certificate root authority to Baltimore.
-          text: >
-            az iot hub certificate root-authority set --hub-name {iothub_name} --certificate-authority v1
-    """
-
-    helps["iot hub certificate root-authority show"] = """
-        type: command
-        short-summary: Show the current certificate root-authority for an IoT Hub instance.
-        examples:
-        - name: Show the target IoT Hub certificate root authority.
-          text: >
-            az iot hub certificate root-authority show --hub-name {iothub_name}
     """
